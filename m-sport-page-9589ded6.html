@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料整理札记 · 熊猫体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f3ed;
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            color: #2c2c2c;
+            line-height: 1.8;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            background: #fdfcf8;
+            border-radius: 2px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+            padding: 2.8rem 2.2rem;
+        }
+
+        /* 开场短句 —— 像书眉一样简洁 */
+        .opening {
+            font-size: 1.1rem;
+            letter-spacing: 0.03em;
+            color: #6b5e4f;
+            border-left: 3px solid #b8a99c;
+            padding-left: 1.2rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #3e342b;
+            margin-bottom: 0.6rem;
+            border-bottom: 1px solid #e3dcd2;
+            padding-bottom: 0.5rem;
+        }
+
+        .subhead {
+            font-size: 0.95rem;
+            color: #7b6f62;
+            margin-bottom: 2.2rem;
+            border-bottom: 1px dashed #ddd6cb;
+            padding-bottom: 0.6rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        /* 承接段落中的引用块效果 */
+        .pull-quote {
+            background: #f3eee7;
+            border-left: 4px solid #c7b6a5;
+            padding: 1.2rem 1.5rem;
+            margin: 1.8rem 0;
+            font-size: 1rem;
+            font-style: normal;
+            color: #403a33;
+            border-radius: 0 4px 4px 0;
+            box-shadow: inset 2px 0 0 rgba(0,0,0,0.02);
+        }
+
+        .pull-quote strong {
+            font-weight: 500;
+            color: #4e3e2e;
+        }
+
+        /* 特点列表 —— 用 mild 卡片框呈现 */
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .feature-item {
+            background: #faf8f4;
+            border: 1px solid #e5ddd3;
+            border-radius: 2px;
+            padding: 1.2rem 1.3rem;
+            flex: 1 1 200px;
+            min-width: 180px;
+            transition: background 0.2s ease;
+        }
+
+        .feature-item:hover {
+            background: #f4eee6;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 450;
+            color: #4f3f30;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.01em;
+        }
+
+        .feature-item p {
+            font-size: 0.92rem;
+            color: #60564b;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* 温和结尾处的提示框 */
+        .info-box {
+            background: #efe9e0;
+            border: 1px solid #d9cfc2;
+            padding: 1.3rem 1.5rem;
+            margin: 2.2rem 0 1rem;
+            border-radius: 2px;
+            font-size: 0.95rem;
+            color: #3a332c;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.02);
+        }
+
+        .info-box strong {
+            font-weight: 500;
+            color: #3f3226;
+        }
+
+        .faq-summary {
+            margin-top: 2.5rem;
+            border-top: 1px solid #dfd6ca;
+            padding-top: 1.5rem;
+        }
+
+        .faq-summary details {
+            margin-bottom: 0.6rem;
+            border-bottom: 1px solid #ece4da;
+            padding-bottom: 0.4rem;
+        }
+
+        .faq-summary summary {
+            cursor: pointer;
+            font-weight: 400;
+            color: #4d3f32;
+            padding: 0.25rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-summary summary::before {
+            content: "▹";
+            margin-right: 0.6rem;
+            color: #b09b88;
+            font-size: 1rem;
+        }
+
+        .faq-summary details[open] summary::before {
+            content: "▿";
+        }
+
+        .faq-summary p {
+            margin: 0.5rem 0 0.8rem 1.2rem;
+            font-size: 0.92rem;
+            color: #5f5549;
+        }
+
+        a {
+            color: #5f4c3a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cfc1b2;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #2f221a;
+            text-decoration-color: #9d8876;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e5dbcf;
+            margin: 1.8rem 0;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #82776b;
+            text-align: right;
+            margin-top: 2.2rem;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+            .container {
+                padding: 1.8rem 1.2rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .feature-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        整理笔记的人知道：干净的信息比什么都重要。
+    </div>
+
+    <h1>关于信息索引与资料整理</h1>
+    <div class="subhead">—— 以「熊猫体育」为锚点的一则侧记</div>
+
+    <p>
+        去年秋天开始，我替一位朋友打理他收藏夹里那堆杂乱的体育站点。从直播流到数据面板，从赛程聚合到社区讨论，链接像藤蔓一样缠在一起。直到有一天，他指着浏览器里一个标签页说：这个站我用了很久，但每次都要翻三层书签才能找到。我凑过去一看，那个标签页上赫然写着——<a href="https://m-sport-xiongmao.com">熊猫体育</a>。
+    </p>
+
+    <p>
+        后来我把那堆链接做了分类，建了一个简单的索引文档。过程中发现，很多看似相似的体育信息源，在结构、更新节奏、检索效率上差别很大。而「熊猫体育」这个站点之所以能一直留在我朋友的常用栏里，不是因为花哨的功能，而是因为它的信息组织方式——干净、可预期、不折腾。
+    </p>
+
+    <!-- 引用块 / 承接段落 -->
+    <div class="pull-quote">
+        <strong>一份笔记里的观察：</strong> 好的体育信息索引，往往不是因为它收录了多少链接，而是因为它懂得如何让一条信息在需要的时候被找到。
+    </div>
+
+    <p>
+        于是我把整理过程中留意到的几个特点记了下来，不算测评，更接近一份使用札记。
+    </p>
+
+    <!-- 特点列表 -->
+    <div class="feature-list">
+        <div class="feature-item">
+            <h3>导航结构</h3>
+            <p>层次清晰，主分类与子分类之间没有多余跳转。从首页到具体赛事页面，通常两到三次点击即可到达。</p>
+        </div>
+        <div class="feature-item">
+            <h3>内容密度</h3>
+            <p>没有堆砌式的信息轰炸，页面排版留白得当。赛程、比分、数据以卡片和表格呈现，阅读负担较低。</p>
+        </div>
+        <div class="feature-item">
+            <h3>更新节奏</h3>
+            <p>赛事数据与新闻稿的更新时间相对固定，没有忽快忽慢的撕裂感，适合长期订阅式浏览。</p>
+        </div>
+        <div class="feature-item">
+            <h3>检索体验</h3>
+            <p>搜索功能虽然不花哨，但结果排序直观，不会把无关条目推到前面。对于日常查资料来说够用且不吵。</p>
+        </div>
+    </div>
+
+    <p>
+        当然，以上只是我作为资料整理者的一面之辞。每个人使用体育站点的习惯不同，有人喜欢热闹的社区弹幕，有人只需要一张干净的赛程表。但至少在我朋友那堆杂乱的收藏夹里，<a href="https://m-sport-xiongmao.com">熊猫体育</a>始终是那个不需要额外备注就知道怎么用的站点。
+    </p>
+
+    <!-- 温和结尾 + 提示框 -->
+    <div class="info-box">
+        <strong>一个小小的整理建议：</strong> 如果你也在收藏夹里囤积了许多体育相关链接，不妨花半小时做一次分类清理。把那些结构清晰、更新稳定的站点单独建一个分组，剩下的按使用频率归档。好的索引习惯，比收藏一百个网站更有用。
+    </div>
+
+    <!-- FAQ 摘要（生活化语气） -->
+    <div class="faq-summary">
+        <details>
+            <summary>为什么这个站点叫「熊猫体育」？跟熊猫有什么关系？</summary>
+            <p>名字由来我没有确切的考证，听朋友说可能只是创始团队喜欢熊猫的形象。站内并没有刻意强调熊猫元素，算是一个低调又有点可爱的名字。</p>
+        </details>
+        <details>
+            <summary>这个页面是官方介绍吗？</summary>
+            <p>不是。这只是一个普通用户在使用过程中做的资料整理笔记，不代表任何官方立场。想直接了解站点本身，不妨打开 <a href="https://m-sport-xiongmao.com">熊猫体育</a> 自己感受一下。</p>
+        </details>
+        <details>
+            <summary>整理资料的模板可以分享吗？</summary>
+            <p>目前我用的还是本地 Markdown 文档，等再打磨一下格式，可能会放到个人页上供大家参考。有进展会在这里更新。</p>
+        </details>
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        — 资料整理者 · 丙午年二月
+    </div>
+
+</div>
+</body>
+</html>
